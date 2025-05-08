@@ -1,0 +1,86 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Office : MonoBehaviour
+{
+    public GameObject camSystem;
+    public GameObject leftDoor;
+    public GameObject windowDoor;
+    public GameObject ui;
+    
+    public AudioClip leftDoorSFX;
+    public AudioClip windowDoorSFX; 
+
+    private AudioSource audioSource;
+
+    public bool isWindowOpen = true;
+    public bool isDoorOpen = true;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        isDoorOpen = true;
+        isWindowOpen = true;
+        audioSource = GetComponent<AudioSource>();
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+  
+
+    public void SwitchToCams()
+    {
+        ui.GetComponent<UI>().AddUsage();
+        camSystem.SetActive(true);
+        gameObject.SetActive(false);
+    }
+
+    public void ToggleLeftDoor()
+    {
+        
+        audioSource.PlayOneShot(leftDoorSFX);
+        if (!isDoorOpen)
+        {
+            ui.GetComponent<UI>().SubtractUsage();
+            leftDoor.GetComponent<Animator>().SetTrigger("OpenDoor");
+            //leftDoor.SetActive(false);
+            isDoorOpen = true;
+            
+        }
+        else
+        {
+            ui.GetComponent<UI>().AddUsage();
+            leftDoor.GetComponent<Animator>().SetTrigger("CloseDoor");
+            //leftDoor.SetActive(true);
+            isDoorOpen = false;
+        }
+    }
+
+    
+
+    public void ToggleWindowDoor()
+    {
+        audioSource.PlayOneShot(windowDoorSFX);
+        if (!isWindowOpen)
+        {
+            ui.GetComponent<UI>().SubtractUsage();
+            //windowDoor.SetActive(false);
+            windowDoor.GetComponent<Animator>().SetTrigger("DoorOpen");
+            isWindowOpen = true;
+        }
+        else
+        {
+            ui.GetComponent<UI>().AddUsage();
+            //windowDoor.SetActive(true);
+            windowDoor.GetComponent<Animator>().SetTrigger("DoorClose");
+            isWindowOpen = false;
+        }
+        
+    }
+}
