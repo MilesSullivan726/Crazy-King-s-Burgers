@@ -18,7 +18,7 @@ public class Cam02 : MonoBehaviour
         leftHall = gameObject.transform.Find("leftHall");
         rightHall = gameObject.transform.Find("rightHall");
         topHall = gameObject.transform.Find("topHall");
-        InvokeRepeating("RotateCams", 0, 3);
+        InvokeRepeating("RotateCams", 0, 1.5f);
     }
 
     // Update is called once per frame

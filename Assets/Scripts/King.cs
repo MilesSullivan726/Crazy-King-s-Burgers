@@ -19,7 +19,7 @@ public class King : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("Movement", 5, 5);
+        InvokeRepeating("Movement", 10, 10);
         audioSource = gameObject.GetComponent<AudioSource>();
     }
 
@@ -46,7 +46,7 @@ public class King : MonoBehaviour
             if (currentPos == 6)
             {
                 StartCoroutine(windowDarkness.GetComponent<Flashlight>().HallwayFlash());
-                audioSource.PlayOneShot(laugh);
+                //audioSource.PlayOneShot(laugh);
             }
             positions[currentPos - 1].SetActive(false);
             positions[currentPos].SetActive(true);

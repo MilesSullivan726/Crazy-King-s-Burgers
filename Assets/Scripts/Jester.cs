@@ -17,7 +17,7 @@ public class Jester : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("Movement", 5, 5);
+        InvokeRepeating("Movement", 11, 11);
         audioSource = gameObject.GetComponent<AudioSource>();
     }
 

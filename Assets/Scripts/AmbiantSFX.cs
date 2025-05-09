@@ -15,7 +15,7 @@ public class AmbiantSFX : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        InvokeRepeating("PlayAmbiance", 30, 30);
+        InvokeRepeating("PlayAmbiance", 50, 50);
     }
 
     // Update is called once per frame

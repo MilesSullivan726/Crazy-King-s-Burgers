@@ -19,7 +19,7 @@ public class Queen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("Movement", 5, 5);
+        InvokeRepeating("Movement", 9, 9);
         audioSource = gameObject.GetComponent<AudioSource>();
     }
 
@@ -47,7 +47,7 @@ public class Queen : MonoBehaviour
             {
                 StartCoroutine(windowDarkness.GetComponent<Flashlight>().HallwayFlash());
                 audioSource.volume = 0.2f;
-                audioSource.PlayOneShot(laugh);
+                //audioSource.PlayOneShot(laugh);
             }
             positions[currentPos - 1].SetActive(false);
             positions[currentPos].SetActive(true);

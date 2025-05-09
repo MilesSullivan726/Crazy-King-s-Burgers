@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class Office : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class Office : MonoBehaviour
     public GameObject leftDoor;
     public GameObject windowDoor;
     public GameObject ui;
-    
+    public GameObject camStatic;
     public AudioClip leftDoorSFX;
     public AudioClip windowDoorSFX; 
 
@@ -36,6 +37,13 @@ public class Office : MonoBehaviour
 
     public void SwitchToCams()
     {
+        StartCoroutine(CamAnim());
+    }
+
+    IEnumerator CamAnim()
+    {
+        yield return new WaitForSeconds(0.4f);
+        camStatic.GetComponent<VideoPlayer>().targetCamera = Camera.main;
         ui.GetComponent<UI>().AddUsage();
         camSystem.SetActive(true);
         gameObject.SetActive(false);

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Video;
 
 public class CameraSystem : MonoBehaviour
 {
@@ -15,12 +16,14 @@ public class CameraSystem : MonoBehaviour
     public GameObject officeCanvas;
     public GameObject ui;
     public GameObject staticEffect;
+    public GameObject camStatic;
     public TextMeshProUGUI camName;
     public AudioClip switchCamSFX;
 
     // Start is called before the first frame update
     void Start()
     {
+        
         stageRoom = gameObject.transform.Find("Stageroom");
         intersection = gameObject.transform.Find("Rooms 2-5");
         hallway = gameObject.transform.Find("hallway");
@@ -49,7 +52,17 @@ public class CameraSystem : MonoBehaviour
 
     public void SwitchToOffice()
     {
+        camStatic.GetComponent<VideoPlayer>().targetCamera = null;
         ui.GetComponent<UI>().SubtractUsage();
+        officeCanvas.SetActive(true);
+        gameObject.SetActive(false);
+    }
+
+    IEnumerator CamAnim()
+    {
+        yield return new WaitForSeconds(0.2f);
+        camStatic.GetComponent<VideoPlayer>().targetCamera = Camera.main;
+        ui.GetComponent<UI>().AddUsage();
         officeCanvas.SetActive(true);
         gameObject.SetActive(false);
     }

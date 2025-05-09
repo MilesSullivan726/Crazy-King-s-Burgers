@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class UI : MonoBehaviour
 {
@@ -38,6 +39,9 @@ public class UI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        
+
         if(usage == 1)
         {
             use2.SetActive(false);
@@ -116,6 +120,7 @@ public class UI : MonoBehaviour
     void UpdatePower()
     {
         currentPower -= usage;
+        currentPower -= 0.7f;
         powerToDisplay = (int)Mathf.Round(currentPower / 10);
         power.text = "Power: " + powerToDisplay.ToString() + "%";
         if(currentPower <= 0)
