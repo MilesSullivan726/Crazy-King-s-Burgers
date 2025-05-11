@@ -80,7 +80,7 @@ public class CameraSystem : MonoBehaviour
         StartCoroutine(ShowStatic());
         
         isOnCam02 = false;
-        camName.text = "South Hallway";
+        camName.text = "South Hall";
         HideAllRooms();
         hallway.gameObject.SetActive(true);
 

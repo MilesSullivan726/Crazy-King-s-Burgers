@@ -21,6 +21,7 @@ public class Office : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine(FixStaticVideo());
         isDoorOpen = true;
         isWindowOpen = true;
         audioSource = GetComponent<AudioSource>();
@@ -33,7 +34,12 @@ public class Office : MonoBehaviour
         
     }
 
-  
+    IEnumerator FixStaticVideo()
+    {
+        camStatic.GetComponent<VideoPlayer>().enabled = false;
+        yield return new WaitForSeconds(0.2f);
+        camStatic.GetComponent<VideoPlayer>().enabled = true;
+    }
 
     public void SwitchToCams()
     {

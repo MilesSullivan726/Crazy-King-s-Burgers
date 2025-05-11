@@ -11,6 +11,7 @@ public class Cam02 : MonoBehaviour
     private int count = 1;
     public string currentCamName = "Intersection";
     public GameObject border;
+    public GameObject camSystem;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +19,7 @@ public class Cam02 : MonoBehaviour
         leftHall = gameObject.transform.Find("leftHall");
         rightHall = gameObject.transform.Find("rightHall");
         topHall = gameObject.transform.Find("topHall");
-        InvokeRepeating("RotateCams", 0, 1.5f);
+        InvokeRepeating("RotateCams", 0, 3);
     }
 
     // Update is called once per frame
@@ -37,7 +38,7 @@ public class Cam02 : MonoBehaviour
 
     void RotateCams()
     {
-        
+        StartCoroutine(camSystem.GetComponent<CameraSystem>().ShowStatic());
         if (count > 4)
         {
             count = 1;
@@ -52,21 +53,21 @@ public class Cam02 : MonoBehaviour
         else if (count == 2)
         {
             border.transform.localPosition = new Vector2(532, -271);
-            currentCamName = "West Hallway";
+            currentCamName = "West Hall";
             HideAllRooms();
             leftHall.gameObject.SetActive(true);
         }
         else if (count == 3)
         {
             border.transform.localPosition = new Vector2(646, -191);
-            currentCamName = "North Hallway";
+            currentCamName = "North Hall";
             HideAllRooms();
             topHall.gameObject.SetActive(true);
         }
         else if (count == 4)
         {
             border.transform.localPosition = new Vector2(759, -271);
-            currentCamName = "East Hallway";
+            currentCamName = "East Hall";
             HideAllRooms();
             rightHall.gameObject.SetActive(true);
         }

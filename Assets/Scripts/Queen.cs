@@ -32,7 +32,7 @@ public class Queen : MonoBehaviour
     void Movement()
     {
         moveChance = Random.Range(0, 21);
-        if (moveChance <= difficulty && currentPos != finalPos)
+        if (moveChance < difficulty && currentPos != finalPos)
         {
             if (positions[currentPos].transform.parent.gameObject.activeSelf || positions[currentPos - 1].transform.parent.gameObject.activeSelf)
             {

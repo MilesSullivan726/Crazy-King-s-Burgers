@@ -33,7 +33,7 @@ public class CamLurker : MonoBehaviour
             Positions[i].SetActive(false);
         }
         moveChance = Random.Range(0, 21);
-        if (moveChance <= difficulty)
+        if (moveChance < difficulty)
         {
             lurkerTextBox.SetActive(true);
             lurkText.text = "Psst... Come find me!";

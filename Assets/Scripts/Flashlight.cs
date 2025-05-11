@@ -65,13 +65,13 @@ public class Flashlight : MonoBehaviour
         if (kingPos.activeSelf && !kingHasBeenFlashed)
         {
             kingHasBeenFlashed = true;
-            audioSource.volume = 0.6f;
+            audioSource.volume = 1f;
             audioSource.PlayOneShot(atWindowScare);
         }
         if (queenPos.activeSelf && !queenHasBeenFlashed)
         {
             queenHasBeenFlashed = true;
-            audioSource.volume = 0.6f;
+            audioSource.volume = 1f;
             audioSource.PlayOneShot(atWindowScare);
         }
     }
@@ -86,13 +86,13 @@ public class Flashlight : MonoBehaviour
         if (kingPos.activeSelf && !kingHasBeenFlashed)
         {
             kingHasBeenFlashed = true;
-            audioSource.volume = 0.6f;
+            audioSource.volume = 1f;
             audioSource.PlayOneShot(atWindowScare);
         }
         if (queenPos.activeSelf && !queenHasBeenFlashed)
         {
             queenHasBeenFlashed = true;
-            audioSource.volume = 0.6f;
+            audioSource.volume = 1f;
             audioSource.PlayOneShot(atWindowScare);
         }
     }

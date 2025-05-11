@@ -19,6 +19,7 @@ public class UI : MonoBehaviour
     public GameObject leftDoor;
     public GameObject window;
     public GameObject fadeToBlack;
+    public GameObject officeAmbiance;
     public TextMeshProUGUI time;  
     public TextMeshProUGUI power;
     private int usage = 1;
@@ -127,6 +128,7 @@ public class UI : MonoBehaviour
         {
             cameraSystem.GetComponent<CameraSystem>().SwitchToOffice();
             powerOutScreen.SetActive(true);
+            officeAmbiance.SetActive(false);
             hideOnPowerOut.SetActive(false);
             camButton.SetActive(false);
             leftDoor.GetComponent<Animator>().SetTrigger("OpenDoor");
