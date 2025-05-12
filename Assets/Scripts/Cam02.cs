@@ -45,28 +45,28 @@ public class Cam02 : MonoBehaviour
         }
         if(count == 1)
         {
-            border.transform.localPosition = new Vector2(646, -271);
+            border.transform.localPosition = new Vector3(-954.02002f, -542.51001f, 1.13440001f);
             currentCamName = "Intersection";
             HideAllRooms();
             intersection.gameObject.SetActive(true);
         }
         else if (count == 2)
         {
-            border.transform.localPosition = new Vector2(532, -271);
+            border.transform.localPosition = new Vector3(-955.059998f, -542.51001f, 1.13440001f);
             currentCamName = "West Hall";
             HideAllRooms();
             leftHall.gameObject.SetActive(true);
         }
         else if (count == 3)
         {
-            border.transform.localPosition = new Vector2(646, -191);
+            border.transform.localPosition = new Vector3(-954.02002f, -541.789978f, 1.13440001f);
             currentCamName = "North Hall";
             HideAllRooms();
             topHall.gameObject.SetActive(true);
         }
         else if (count == 4)
         {
-            border.transform.localPosition = new Vector2(759, -271);
+            border.transform.localPosition = new Vector3(-952.969971f, -542.51001f, 1.13440001f);
             currentCamName = "East Hall";
             HideAllRooms();
             rightHall.gameObject.SetActive(true);

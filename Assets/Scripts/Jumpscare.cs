@@ -8,6 +8,8 @@ public class Jumpscare : MonoBehaviour
 
     public GameObject flashingScreen;
     public GameObject tablet;
+    public GameObject fadeOut;
+    static bool turnOffFlash = false;
 
     // Start is called before the first frame update
     void Start()
@@ -23,15 +25,41 @@ public class Jumpscare : MonoBehaviour
         
     }
 
+    public void DisableFlash()
+    {
+        turnOffFlash = true;
+        fadeOut.SetActive(true);
+        StartCoroutine(GoToMainMenu());
+    }
+
+    public void EnableFlash()
+    {
+        turnOffFlash = false;
+        fadeOut.SetActive(true);
+        StartCoroutine(GoToMainMenu());
+    }
+
+    IEnumerator GoToMainMenu()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("TitleScreen");
+    }
+
     IEnumerator Shake()
     {
         for (int i = 0; i < 30; i++)
         {
             transform.localPosition = new Vector3(0.7f, transform.localPosition.y, transform.localPosition.z);
-            flashingScreen.SetActive(true);
+            if (!turnOffFlash)
+            {
+                flashingScreen.SetActive(true);
+            }
             yield return new WaitForSeconds(0.025f);
             transform.localPosition = new Vector3(0.9f, transform.localPosition.y, transform.localPosition.z);
-            flashingScreen.SetActive(false);
+            if (!turnOffFlash)
+            {
+                flashingScreen.SetActive(false);
+            }
             yield return new WaitForSeconds(0.025f);
         }
         

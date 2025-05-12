@@ -8,10 +8,7 @@ using UnityEngine.SceneManagement;
 public class CustomNight : MonoBehaviour
 {
 
-    public GameObject kingAI;
-    public GameObject queenAI;
-    public GameObject jesterAI;
-    public GameObject camLurkAI;
+    
     public GameObject camStatic;
     public GameObject fadeOut;
     public GameObject kingAi;
@@ -47,9 +44,26 @@ public class CustomNight : MonoBehaviour
         camStatic.GetComponent<VideoPlayer>().enabled = true;
     }
 
+    public void BackToMenu()
+    {
+        fadeOut.SetActive(true);
+        StartCoroutine(LoadMenu());
+    }
+
+    IEnumerator LoadMenu()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("TitleScreen");
+    }
+
     public void KingDown()
     {
-        if(kingValue > 0)
+        if(kingValue == 0)
+        {
+            kingValue = 20;
+            kingText.text = kingValue.ToString();
+        }
+        else if(kingValue > 0)
         {
             kingValue -= 1;
             kingText.text = kingValue.ToString();
@@ -58,10 +72,13 @@ public class CustomNight : MonoBehaviour
 
     public void KingUp()
     {
-        
-        if (kingValue < 20)
+        if (kingValue == 20)
         {
-            
+            kingValue = 0;
+            kingText.text = kingValue.ToString();
+        }
+        else if (kingValue < 20)
+        {
             kingValue += 1;
             kingText.text = kingValue.ToString();
         }
@@ -69,7 +86,13 @@ public class CustomNight : MonoBehaviour
 
     public void QueenDown()
     {
-        if (queenValue > 0)
+        if (queenValue == 0)
+        {
+            queenValue = 20;
+            queenText.text = queenValue.ToString();
+        }
+        
+        else if (queenValue > 0)
         {
             queenValue -= 1;
             queenText.text = queenValue.ToString();
@@ -78,7 +101,13 @@ public class CustomNight : MonoBehaviour
 
     public void QueenUp()
     {
-        if (queenValue < 20)
+        if (queenValue == 20)
+        {
+            queenValue = 0;
+            queenText.text = queenValue.ToString();
+        }
+
+        else if (queenValue < 20)
         {
             queenValue += 1;
             queenText.text = queenValue.ToString();
@@ -87,7 +116,13 @@ public class CustomNight : MonoBehaviour
 
     public void JesterDown()
     {
-        if (jesterValue > 0)
+        if (jesterValue == 0)
+        {
+            jesterValue = 20;
+            jesterText.text = jesterValue.ToString();
+        }
+        
+        else if (jesterValue > 0)
         {
             jesterValue -= 1;
             jesterText.text = jesterValue.ToString();
@@ -97,7 +132,13 @@ public class CustomNight : MonoBehaviour
 
     public void JesterUp()
     {
-        if (jesterValue < 20)
+        if (jesterValue == 20)
+        {
+            jesterValue = 0;
+            jesterText.text = jesterValue.ToString();
+        }
+
+        else if (jesterValue < 20)
         {
             jesterValue += 1;
             jesterText.text = jesterValue.ToString();
@@ -106,7 +147,12 @@ public class CustomNight : MonoBehaviour
 
     public void CamLurkDown()
     {
-        if (camLurkValue > 0)
+        if(camLurkValue == 0)
+        {
+            camLurkValue = 20;
+            camLurkText.text = camLurkValue.ToString();
+        }
+        else if (camLurkValue > 0)
         {
             camLurkValue -= 1;
             camLurkText.text = camLurkValue.ToString();
@@ -115,7 +161,12 @@ public class CustomNight : MonoBehaviour
 
     public void CamLurkUp()
     {
-        if (camLurkValue < 20)
+        if (camLurkValue == 20)
+        {
+            camLurkValue = 0;
+            camLurkText.text = camLurkValue.ToString();
+        }
+        else if (camLurkValue < 20)
         {
             camLurkValue += 1;
             camLurkText.text = camLurkValue.ToString();

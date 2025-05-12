@@ -22,6 +22,7 @@ public class UI : MonoBehaviour
     public GameObject officeAmbiance;
     public TextMeshProUGUI time;  
     public TextMeshProUGUI power;
+    public GameObject fan;
     private int usage = 1;
     private int currentTime = 0;
     public float currentPower = 999;
@@ -127,6 +128,7 @@ public class UI : MonoBehaviour
         if(currentPower <= 0)
         {
             cameraSystem.GetComponent<CameraSystem>().SwitchToOffice();
+            fan.GetComponent<Animator>().enabled = false;
             powerOutScreen.SetActive(true);
             officeAmbiance.SetActive(false);
             hideOnPowerOut.SetActive(false);
