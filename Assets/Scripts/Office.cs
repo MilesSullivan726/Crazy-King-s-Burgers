@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Video;
 
 public class Office : MonoBehaviour
@@ -10,6 +11,8 @@ public class Office : MonoBehaviour
     public GameObject windowDoor;
     public GameObject ui;
     public GameObject camStatic;
+    public GameObject windowButton;
+    public GameObject leftDoorButton;
     public AudioClip leftDoorSFX;
     public AudioClip windowDoorSFX; 
 
@@ -55,12 +58,19 @@ public class Office : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    IEnumerator LeftDoorCooldown()
+    {
+        leftDoorButton.GetComponent<Button>().enabled = false;
+        yield return new WaitForSeconds(0.4f);
+        leftDoorButton.GetComponent<Button>().enabled = true;
+    }
     public void ToggleLeftDoor()
     {
         
         audioSource.PlayOneShot(leftDoorSFX);
         if (!isDoorOpen)
         {
+            StartCoroutine(LeftDoorCooldown());
             ui.GetComponent<UI>().SubtractUsage();
             leftDoor.GetComponent<Animator>().SetTrigger("OpenDoor");
             //leftDoor.SetActive(false);
@@ -76,10 +86,16 @@ public class Office : MonoBehaviour
         }
     }
 
-    
+    IEnumerator WindowCooldown()
+    {
+        windowButton.GetComponent<Button>().enabled = false;
+        yield return new WaitForSeconds(0.4f);
+        windowButton.GetComponent<Button>().enabled = true;
+    }
 
     public void ToggleWindowDoor()
     {
+        StartCoroutine(WindowCooldown());
         audioSource.PlayOneShot(windowDoorSFX);
         if (!isWindowOpen)
         {

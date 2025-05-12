@@ -26,6 +26,13 @@ public class AmbiantSFX : MonoBehaviour
 
     void PlayAmbiance()
     {
+
+        
+            sfxToPlay = Random.Range(0, officeSFXs.Length);
+            audioSource.PlayOneShot(officeSFXs[sfxToPlay]);
+        
+
+        /*
         if (office.activeSelf) //player is in office
         {
             sfxToPlay = Random.Range(0, officeSFXs.Length);
@@ -35,6 +42,6 @@ public class AmbiantSFX : MonoBehaviour
         {
             sfxToPlay = Random.Range(0, camSFXs.Length);
             audioSource.PlayOneShot(camSFXs[sfxToPlay]);
-        }
+        }*/
     }
 }

@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: a80ce6e10dfaf4345bd1267e2299453f
+  - enabled: 1
+    path: Assets/Scenes/Custom Night.unity
+    guid: d876536f039fdf2489096dfe0d003d09
   m_configObjects: {}

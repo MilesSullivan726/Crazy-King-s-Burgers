@@ -60,7 +60,7 @@ public class Flashlight : MonoBehaviour
     private void OnMouseDown()
     {
         flashLightOn = true;
-        audioSource.volume = 0.2f;
+        //audioSource.volume = 0.2f;
         audioSource.PlayOneShot(flashlightSFX);
         if (kingPos.activeSelf && !kingHasBeenFlashed)
         {

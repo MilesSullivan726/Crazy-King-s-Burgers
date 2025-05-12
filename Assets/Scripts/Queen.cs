@@ -38,12 +38,12 @@ public class Queen : MonoBehaviour
             {
                 StartCoroutine(cameraSystem.GetComponent<CameraSystem>().ShowStatic());
             }
-            if (currentPos == 4)
+            if (currentPos == 5)
             {
                 StartCoroutine(windowDarkness.GetComponent<Flashlight>().HallwayFlash());
 
             }
-            if (currentPos == 5)
+            if (currentPos == 6)
             {
                 StartCoroutine(windowDarkness.GetComponent<Flashlight>().HallwayFlash());
                 audioSource.volume = 0.2f;

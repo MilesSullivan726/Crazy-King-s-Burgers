@@ -11,6 +11,7 @@ public class PhoneCall : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         StartCoroutine(StartCall());
+        StartCoroutine(HideMuteCallEnd());
     }
 
     // Update is called once per frame
@@ -22,6 +23,12 @@ public class PhoneCall : MonoBehaviour
     public void MuteCall()
     {
         audioSource.Stop();
+        muteButton.SetActive(false);
+    }
+
+    IEnumerator HideMuteCallEnd()
+    {
+        yield return new WaitForSeconds(156);
         muteButton.SetActive(false);
     }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Video;
+using UnityEngine.UI;
 
 public class CameraSystem : MonoBehaviour
 {
@@ -17,6 +18,11 @@ public class CameraSystem : MonoBehaviour
     public GameObject ui;
     public GameObject staticEffect;
     public GameObject camStatic;
+    public GameObject camButton1;
+    public GameObject camButton2;
+    public GameObject camButton3;
+    public GameObject camButton4;
+    public GameObject camButton5;
     public TextMeshProUGUI camName;
     public AudioClip switchCamSFX;
 
@@ -48,6 +54,11 @@ public class CameraSystem : MonoBehaviour
         hallway.gameObject.SetActive(false);
         ballpit.gameObject.SetActive(false);
         bathroom.gameObject.SetActive(false);
+        camButton1.GetComponent<Image>().color = Color.black;
+        camButton2.GetComponent<Image>().color = Color.black;
+        camButton3.GetComponent<Image>().color = Color.black;
+        camButton4.GetComponent<Image>().color = Color.black;
+        camButton5.GetComponent<Image>().color = Color.black;
     }
 
     public void SwitchToOffice()
@@ -77,51 +88,61 @@ public class CameraSystem : MonoBehaviour
 
     public void ClickCam1()
     {
+        
         StartCoroutine(ShowStatic());
         
         isOnCam02 = false;
         camName.text = "South Hall";
         HideAllRooms();
+        camButton1.GetComponent<Image>().color = Color.yellow;
         hallway.gameObject.SetActive(true);
 
     }
 
     public void ClickCam2()
     {
+        camButton2.GetComponent<Image>().color = Color.yellow;
         StartCoroutine(ShowStatic());
         
         isOnCam02 = true;
         HideAllRooms();
+        camButton2.GetComponent<Image>().color = Color.yellow;
         intersection.gameObject.SetActive(true);
     }
 
     public void ClickCam6()
     {
+        
         StartCoroutine(ShowStatic());
         
         isOnCam02 = false;
         camName.text = "Bathrooms";
         HideAllRooms();
+        camButton3.GetComponent<Image>().color = Color.yellow;
         bathroom.gameObject.SetActive(true);
     }
 
     public void ClickCam7()
     {
+        
         StartCoroutine(ShowStatic());
         
         isOnCam02 = false;
         camName.text = "Stage Room";
         HideAllRooms();
+        camButton4.GetComponent<Image>().color = Color.yellow;
         stageRoom.gameObject.SetActive(true);
     }
 
     public void ClickCam8()
     {
+        
         StartCoroutine(ShowStatic());
         
         isOnCam02 = false;
         camName.text = "Play Area";
         HideAllRooms();
+        camButton5.GetComponent<Image>().color = Color.yellow;
         ballpit.gameObject.SetActive(true);
     }
 }
