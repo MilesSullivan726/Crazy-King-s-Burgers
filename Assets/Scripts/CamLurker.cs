@@ -9,6 +9,7 @@ public class CamLurker : MonoBehaviour
     public GameObject killButton;
     public GameObject ui;
     public GameObject lurkerTextBox;
+    public GameObject helpButton;
     public TextMeshProUGUI lurkText;
     public int difficulty;
     public bool buttonClicked;
@@ -32,9 +33,11 @@ public class CamLurker : MonoBehaviour
         {
             Positions[i].SetActive(false);
         }
-        moveChance = Random.Range(0, 21);
-        if (moveChance < difficulty)
+        moveChance = Random.Range(1, 21);
+        if (moveChance <= difficulty)
         {
+            helpButton.SetActive(true);
+            helpButton.GetComponent<HelpButton>().camLurkerActive = true;
             lurkerTextBox.SetActive(true);
             lurkText.text = "Psst... Come find me!";
             
@@ -63,6 +66,11 @@ public class CamLurker : MonoBehaviour
             lurkText.text = "Better luck next time!";
             StartCoroutine("HideTextBox");
         }
+        helpButton.GetComponent<HelpButton>().camLurkerActive = false;
+        if (helpButton.GetComponent<HelpButton>().charOnScreen.Count == 0) // prevent bug when lurker is dealt with before help button is pressed
+        {
+            helpButton.SetActive(false);
+        }
     }
 
     IEnumerator StartTimer()
@@ -77,6 +85,11 @@ public class CamLurker : MonoBehaviour
             StartCoroutine("HideTextBox");
         }
         buttonClicked = false;
+        helpButton.GetComponent<HelpButton>().camLurkerActive = false;
+        if (helpButton.GetComponent<HelpButton>().charOnScreen.Count == 0)
+        {
+            helpButton.SetActive(false);
+        }
     }
 
     IEnumerator HideTextBox()

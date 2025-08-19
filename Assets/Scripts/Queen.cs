@@ -12,6 +12,7 @@ public class Queen : MonoBehaviour
     public AudioClip doorKnock;
     public AudioClip laugh;
     public int difficulty;
+    public bool knightOverride = false;
     private int moveChance;
     private int currentPos = 1;
     private AudioSource audioSource;
@@ -29,11 +30,12 @@ public class Queen : MonoBehaviour
 
     }
 
-    void Movement()
+    public void Movement()
     {
-        moveChance = Random.Range(0, 21);
-        if (moveChance < difficulty && currentPos != finalPos)
+        moveChance = Random.Range(1, 21);
+        if ((moveChance <= difficulty && currentPos != finalPos) || knightOverride)
         {
+            knightOverride = false;
             if (positions[currentPos].transform.parent.gameObject.activeSelf || positions[currentPos - 1].transform.parent.gameObject.activeSelf)
             {
                 StartCoroutine(cameraSystem.GetComponent<CameraSystem>().ShowStatic());

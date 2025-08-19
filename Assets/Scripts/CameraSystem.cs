@@ -12,6 +12,7 @@ public class CameraSystem : MonoBehaviour
     private Transform hallway;
     private Transform ballpit;
     private Transform bathroom;
+    private Transform princessRoom;
     private AudioSource audioSource;
     private bool isOnCam02 = false;
     public GameObject officeCanvas;
@@ -23,6 +24,8 @@ public class CameraSystem : MonoBehaviour
     public GameObject camButton3;
     public GameObject camButton4;
     public GameObject camButton5;
+    public GameObject camButton6;
+    public GameObject helpButton;
     public TextMeshProUGUI camName;
     public AudioClip switchCamSFX;
 
@@ -35,6 +38,7 @@ public class CameraSystem : MonoBehaviour
         hallway = gameObject.transform.Find("hallway");
         ballpit = gameObject.transform.Find("ballpit");
         bathroom = gameObject.transform.Find("bathroom");
+        princessRoom = gameObject.transform.Find("princessRoom");
         audioSource = gameObject.GetComponent<AudioSource>();
     }
 
@@ -49,16 +53,26 @@ public class CameraSystem : MonoBehaviour
 
     void HideAllRooms()
     {
+        helpButton.GetComponent<HelpButton>().charOnScreen.Clear();
+        if (helpButton.GetComponent<HelpButton>().camLurkerActive == false)
+        {
+            helpButton.GetComponent<HelpButton>().testText.text = string.Empty;
+            helpButton.GetComponent<HelpButton>().listIndex = 0;
+            
+            helpButton.SetActive(false);
+        }
         stageRoom.gameObject.SetActive(false);
         intersection.gameObject.SetActive(false);
         hallway.gameObject.SetActive(false);
         ballpit.gameObject.SetActive(false);
         bathroom.gameObject.SetActive(false);
+        princessRoom.gameObject.SetActive(false);
         camButton1.GetComponent<Image>().color = Color.black;
         camButton2.GetComponent<Image>().color = Color.black;
         camButton3.GetComponent<Image>().color = Color.black;
         camButton4.GetComponent<Image>().color = Color.black;
         camButton5.GetComponent<Image>().color = Color.black;
+        camButton6.GetComponent<Image>().color = Color.black;
     }
 
     public void SwitchToOffice()
@@ -144,5 +158,17 @@ public class CameraSystem : MonoBehaviour
         HideAllRooms();
         camButton5.GetComponent<Image>().color = Color.yellow;
         ballpit.gameObject.SetActive(true);
+    }
+
+    public void ClickCam9()
+    {
+
+        StartCoroutine(ShowStatic());
+
+        isOnCam02 = false;
+        camName.text = "Princess Corner";
+        HideAllRooms();
+        camButton6.GetComponent<Image>().color = Color.yellow;
+        princessRoom.gameObject.SetActive(true);
     }
 }
