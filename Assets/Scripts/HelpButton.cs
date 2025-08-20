@@ -112,7 +112,20 @@ public class HelpButton : MonoBehaviour
         testText.text = string.Empty;
         
         buttonText.text = "OK!";
-        if (charOnScreen[listIndex] == "Jester")
+        if (charOnScreen[listIndex] == "Knight")
+        {
+            listIndex += 1;
+            // show characters 1 by 1
+            foreach (char c in hints[4].ToCharArray())
+            {
+
+                testText.text += c;
+                yield return new WaitForSeconds(0.03f);
+
+            }
+
+        }
+        else if (charOnScreen[listIndex] == "Jester")
         {
             listIndex += 1;
             // show characters 1 by 1

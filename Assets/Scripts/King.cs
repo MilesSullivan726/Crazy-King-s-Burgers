@@ -12,15 +12,16 @@ public class King : MonoBehaviour
     public AudioClip doorKnock;
     public AudioClip laugh;
     public int difficulty;
+    public bool knightPresent = false;
     public bool knightOverride = false;
     private int moveChance;
-    private int currentPos = 1;
+    public int currentPos = 1;
     private AudioSource audioSource;
     public int finalPos = 6;
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("Movement", 10, 10);
+        InvokeRepeating("Movement", 9, 9);
         audioSource = gameObject.GetComponent<AudioSource>();
     }
 
@@ -33,7 +34,7 @@ public class King : MonoBehaviour
     public void Movement()
     {
         moveChance = Random.Range(1, 21);
-        if ((moveChance <= difficulty && currentPos != finalPos) || knightOverride)
+        if (((moveChance <= difficulty && currentPos != finalPos) || knightOverride) && !knightPresent)
         {
             knightOverride = false;
             if (positions[currentPos].transform.parent.gameObject.activeSelf || positions[currentPos - 1].transform.parent.gameObject.activeSelf)
@@ -43,11 +44,12 @@ public class King : MonoBehaviour
             if (currentPos == 5)
             {
                 StartCoroutine(windowDarkness.GetComponent<Flashlight>().HallwayFlash());
-                
+
             }
             if (currentPos == 6)
             {
                 StartCoroutine(windowDarkness.GetComponent<Flashlight>().HallwayFlash());
+                audioSource.volume = 0.2f;
                 //audioSource.PlayOneShot(laugh);
             }
             positions[currentPos - 1].SetActive(false);
@@ -60,7 +62,7 @@ public class King : MonoBehaviour
             {
                 cameraSystem.GetComponent<CameraSystem>().SwitchToOffice();
                 jumpscare.SetActive(true);
-                
+
             }
             else
             {
@@ -68,6 +70,7 @@ public class King : MonoBehaviour
                 {
                     StartCoroutine(cameraSystem.GetComponent<CameraSystem>().ShowStatic());
                 }
+                audioSource.volume = 1;
                 audioSource.PlayOneShot(doorKnock);
                 currentPos = 1;
                 positions[finalPos - 1].SetActive(false);

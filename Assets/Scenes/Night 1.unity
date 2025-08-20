@@ -475,6 +475,8 @@ MonoBehaviour:
   doorKnock: {fileID: 8300000, guid: 7415fd18ccb889a40ae27fdf455b15a8, type: 3}
   difficulty: 20
   knightOverride: 0
+  knightPresent: 0
+  currentPos: 1
   finalPos: 6
 --- !u!82 &26366579
 AudioSource:
@@ -957,8 +959,10 @@ MonoBehaviour:
   windowDarkness: {fileID: 539092335}
   doorKnock: {fileID: 8300000, guid: 7415fd18ccb889a40ae27fdf455b15a8, type: 3}
   laugh: {fileID: 8300000, guid: 803d11ddc76643c43b6c70f10cec10e1, type: 3}
-  difficulty: 0
+  difficulty: 20
+  knightPresent: 0
   knightOverride: 0
+  currentPos: 1
   finalPos: 7
 --- !u!82 &61528880
 AudioSource:
@@ -3513,6 +3517,7 @@ GameObject:
   m_Component:
   - component: {fileID: 386744594}
   - component: {fileID: 386744595}
+  - component: {fileID: 386744596}
   m_Layer: 0
   m_Name: Knight Pos 0
   m_TagString: Untagged
@@ -3587,6 +3592,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &386744596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386744593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5744861b692581645b54e3cedb89d8ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hintSystem: {fileID: 1072926874}
+  characterName: Knight
 --- !u!1 &387449000
 GameObject:
   m_ObjectHideFlags: 0
@@ -7859,6 +7878,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 929156765}
   - {fileID: 1495633662}
   - {fileID: 431217670}
   - {fileID: 96205162}
@@ -8405,6 +8425,90 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 883057449}
   m_CullTransparentMesh: 1
+--- !u!1 &929156764
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 929156765}
+  - component: {fileID: 929156766}
+  m_Layer: 0
+  m_Name: OfficeOverlay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &929156765
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929156764}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -952.99, y: -537.69, z: 0}
+  m_LocalScale: {x: 0.92929, y: 0.92929, z: 0.92929}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 857676393}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &929156766
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929156764}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 1147671975, guid: 13a28e5959e3f784f9d26af760a19012, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 4.11, y: 5.79}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &929774664
 GameObject:
   m_ObjectHideFlags: 0
@@ -9209,6 +9313,8 @@ MonoBehaviour:
     your power!
   - The Jester likes to head towards cam 01. If you see any errors, close your left
     door!
+  - Sir Knight will attack left, middle, or right based on what hall he's in. Listen
+    for footsteps!
   camLurkerActive: 0
   charOnScreen:
   - 
@@ -10617,8 +10723,10 @@ MonoBehaviour:
   windowDarkness: {fileID: 539092335}
   doorKnock: {fileID: 8300000, guid: 7415fd18ccb889a40ae27fdf455b15a8, type: 3}
   laugh: {fileID: 8300000, guid: c2bf45acde5e21c40a2bad798e667307, type: 3}
-  difficulty: 0
+  difficulty: 20
   knightOverride: 0
+  knightPresent: 0
+  currentPos: 1
   finalPos: 7
 --- !u!82 &1306012692
 AudioSource:
@@ -12536,7 +12644,7 @@ MonoBehaviour:
   lurkerTextBox: {fileID: 1543300668}
   helpButton: {fileID: 1072926874}
   lurkText: {fileID: 387449002}
-  difficulty: 0
+  difficulty: 20
   buttonClicked: 0
 --- !u!1 &1495633661
 GameObject:
@@ -15286,6 +15394,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1817254551}
   - component: {fileID: 1817254552}
+  - component: {fileID: 1817254553}
   m_Layer: 0
   m_Name: Knight Pos 2
   m_TagString: Untagged
@@ -15360,6 +15469,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1817254553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817254550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5744861b692581645b54e3cedb89d8ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hintSystem: {fileID: 1072926874}
+  characterName: Knight
 --- !u!1 &1832627894
 GameObject:
   m_ObjectHideFlags: 0
@@ -15813,7 +15936,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1930940577
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16143,6 +16266,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1982659214}
   - component: {fileID: 1982659215}
+  - component: {fileID: 1982659216}
   m_Layer: 0
   m_Name: Knight Pos 1
   m_TagString: Untagged
@@ -16217,6 +16341,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1982659216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1982659213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5744861b692581645b54e3cedb89d8ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hintSystem: {fileID: 1072926874}
+  characterName: Knight
 --- !u!1 &1994581076
 GameObject:
   m_ObjectHideFlags: 0
@@ -17000,6 +17138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2089419016}
   - component: {fileID: 2089419017}
+  - component: {fileID: 2089419018}
   m_Layer: 0
   m_Name: Knight Pos 3
   m_TagString: Untagged
@@ -17074,6 +17213,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2089419018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089419015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5744861b692581645b54e3cedb89d8ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hintSystem: {fileID: 1072926874}
+  characterName: Knight
 --- !u!1 &2089865743
 GameObject:
   m_ObjectHideFlags: 0
