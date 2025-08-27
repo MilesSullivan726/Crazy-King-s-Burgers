@@ -473,7 +473,7 @@ MonoBehaviour:
   jumpscare: {fileID: 351027109}
   cameraSystem: {fileID: 1997837023}
   doorKnock: {fileID: 8300000, guid: 7415fd18ccb889a40ae27fdf455b15a8, type: 3}
-  difficulty: 20
+  difficulty: 0
   knightOverride: 0
   knightPresent: 0
   currentPos: 1
@@ -959,7 +959,7 @@ MonoBehaviour:
   windowDarkness: {fileID: 539092335}
   doorKnock: {fileID: 8300000, guid: 7415fd18ccb889a40ae27fdf455b15a8, type: 3}
   laugh: {fileID: 8300000, guid: 803d11ddc76643c43b6c70f10cec10e1, type: 3}
-  difficulty: 20
+  difficulty: 0
   knightPresent: 0
   knightOverride: 0
   currentPos: 1
@@ -1751,7 +1751,6 @@ GameObject:
   m_Component:
   - component: {fileID: 120335173}
   - component: {fileID: 120335174}
-  - component: {fileID: 120335175}
   m_Layer: 0
   m_Name: jesterPos 5
   m_TagString: Untagged
@@ -1826,20 +1825,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &120335175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 120335172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5744861b692581645b54e3cedb89d8ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hintSystem: {fileID: 1072926874}
-  characterName: Jester
 --- !u!1 &140818368
 GameObject:
   m_ObjectHideFlags: 0
@@ -2068,7 +2053,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 156204723}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5744861b692581645b54e3cedb89d8ce, type: 3}
   m_Name: 
@@ -2243,7 +2228,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 166065562}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5744861b692581645b54e3cedb89d8ce, type: 3}
   m_Name: 
@@ -2344,7 +2329,6 @@ GameObject:
   m_Component:
   - component: {fileID: 210941907}
   - component: {fileID: 210941908}
-  - component: {fileID: 210941909}
   m_Layer: 0
   m_Name: Queen Pos 2
   m_TagString: Untagged
@@ -2419,20 +2403,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &210941909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 210941906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5744861b692581645b54e3cedb89d8ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hintSystem: {fileID: 1072926874}
-  characterName: Queen
 --- !u!1 &218513303
 GameObject:
   m_ObjectHideFlags: 0
@@ -3092,7 +3062,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 349385741}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5744861b692581645b54e3cedb89d8ce, type: 3}
   m_Name: 
@@ -5523,7 +5493,6 @@ GameObject:
   m_Component:
   - component: {fileID: 552146907}
   - component: {fileID: 552146908}
-  - component: {fileID: 552146909}
   m_Layer: 0
   m_Name: Queen Pos 3
   m_TagString: Untagged
@@ -5598,20 +5567,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &552146909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 552146906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5744861b692581645b54e3cedb89d8ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hintSystem: {fileID: 1072926874}
-  characterName: Queen
 --- !u!1 &585751768
 GameObject:
   m_ObjectHideFlags: 0
@@ -6531,7 +6486,7 @@ MonoBehaviour:
   jesterAI: {fileID: 26366576}
   doorKnock: {fileID: 8300000, guid: 7415fd18ccb889a40ae27fdf455b15a8, type: 3}
   run: {fileID: 8300000, guid: c42d7e9beffa9dc4da594bfab0b9d899, type: 3}
-  difficulty: 20
+  difficulty: 0
   finalPos: 6
 --- !u!1 &720886563
 GameObject:
@@ -9164,6 +9119,7 @@ GameObject:
   - component: {fileID: 1072926877}
   - component: {fileID: 1072926876}
   - component: {fileID: 1072926879}
+  - component: {fileID: 1072926880}
   m_Layer: 5
   m_Name: Help Button
   m_TagString: Untagged
@@ -9303,6 +9259,10 @@ MonoBehaviour:
   evaAnimator: {fileID: 1790366602}
   testTextBox: {fileID: 1448547410}
   triangle: {fileID: 782465576}
+  roomsToHideHint:
+  - {fileID: 1016127572}
+  - {fileID: 929774664}
+  - {fileID: 372196926}
   helpButton: {fileID: 1072926876}
   testText: {fileID: 781452428}
   buttonText: {fileID: 835547775}
@@ -9321,7 +9281,104 @@ MonoBehaviour:
   - 
   - 
   - 
+  isOnScreen: 0
   listIndex: 0
+--- !u!82 &1072926880
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072926874}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: f53747a8f6d685d45a431b600f7c905c, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.35
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1082457994
 GameObject:
   m_ObjectHideFlags: 0
@@ -10723,7 +10780,7 @@ MonoBehaviour:
   windowDarkness: {fileID: 539092335}
   doorKnock: {fileID: 8300000, guid: 7415fd18ccb889a40ae27fdf455b15a8, type: 3}
   laugh: {fileID: 8300000, guid: c2bf45acde5e21c40a2bad798e667307, type: 3}
-  difficulty: 20
+  difficulty: 0
   knightOverride: 0
   knightPresent: 0
   currentPos: 1
@@ -11609,7 +11666,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1358684509}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5744861b692581645b54e3cedb89d8ce, type: 3}
   m_Name: 
@@ -11862,6 +11919,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1389986709}
   - component: {fileID: 1389986710}
+  - component: {fileID: 1389986711}
   m_Layer: 0
   m_Name: jesterPos 1
   m_TagString: Untagged
@@ -11936,6 +11994,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1389986711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389986708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5744861b692581645b54e3cedb89d8ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hintSystem: {fileID: 1072926874}
+  characterName: Jester
 --- !u!1 &1408459039
 GameObject:
   m_ObjectHideFlags: 0
@@ -12499,7 +12571,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1469078213}
   - component: {fileID: 1469078212}
-  - component: {fileID: 1469078214}
   m_Layer: 0
   m_Name: jesterPos 6
   m_TagString: Untagged
@@ -12575,20 +12646,6 @@ Transform:
   - {fileID: 24199102}
   m_Father: {fileID: 372196927}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1469078214
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1469078211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5744861b692581645b54e3cedb89d8ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hintSystem: {fileID: 1072926874}
-  characterName: Jester
 --- !u!1 &1477644372
 GameObject:
   m_ObjectHideFlags: 0
@@ -12644,7 +12701,7 @@ MonoBehaviour:
   lurkerTextBox: {fileID: 1543300668}
   helpButton: {fileID: 1072926874}
   lurkText: {fileID: 387449002}
-  difficulty: 20
+  difficulty: 0
   buttonClicked: 0
 --- !u!1 &1495633661
 GameObject:
@@ -13857,7 +13914,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1547910796}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5744861b692581645b54e3cedb89d8ce, type: 3}
   m_Name: 
@@ -13973,7 +14030,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -14174,7 +14231,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1641734376}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5744861b692581645b54e3cedb89d8ce, type: 3}
   m_Name: 
@@ -15476,7 +15533,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1817254550}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5744861b692581645b54e3cedb89d8ce, type: 3}
   m_Name: 
@@ -15912,7 +15969,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1925725459}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5744861b692581645b54e3cedb89d8ce, type: 3}
   m_Name: 
@@ -16348,7 +16405,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1982659213}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5744861b692581645b54e3cedb89d8ce, type: 3}
   m_Name: 
@@ -17220,7 +17277,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2089419015}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5744861b692581645b54e3cedb89d8ce, type: 3}
   m_Name: 

@@ -12,17 +12,20 @@ public class HelpButton : MonoBehaviour
     public Animator evaAnimator;
     public GameObject testTextBox;
     public GameObject triangle;
+    public GameObject[] roomsToHideHint;
     public Button helpButton;
     public TextMeshProUGUI testText;
     public TextMeshProUGUI buttonText;
     public string[] hints;
     public bool camLurkerActive = false;
     public List<string> charOnScreen;
-    private bool isOnScreen = false;
+    private List<string> tempCharList;
+    public bool isOnScreen = false;
     private bool readyToShowText = false;
     private TextMeshProUGUI noText;
     private SpriteRenderer boxSprite;
     private SpriteRenderer triangleSprite;
+    private AudioSource audioSource;
     public int listIndex = 0;
     // Start is called before the first frame update
     void Start()
@@ -30,8 +33,10 @@ public class HelpButton : MonoBehaviour
         testText.text = string.Empty;
         boxSprite = testTextBox.GetComponent<SpriteRenderer>();
         triangleSprite = triangle.GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
         buttonText.text = "HELP!";
         
+
 
     }
 
@@ -43,6 +48,8 @@ public class HelpButton : MonoBehaviour
 
     public void PopUp()
     {
+        audioSource.Play();
+        
         
         StopAllCoroutines();
         testText.text = string.Empty;
@@ -54,10 +61,23 @@ public class HelpButton : MonoBehaviour
             StartCoroutine(HelpButtonCooldown(1));
             StartCoroutine(ShowTextBox(testTextBox));
         }
-        else if (charOnScreen.Count == 0) // prevents bugs when switching cams when cam lurker hint is active
+        else if (roomsToHideHint[0].activeSelf || roomsToHideHint[1].activeSelf || roomsToHideHint[2].activeSelf) // prevents bugs when switching cams when cam lurker hint is active
         {
+            
+            StartCoroutine(HideEva());
             gameObject.GetComponent<Image>().color = Color.black;
-            gameObject.SetActive(false);
+            testText.text = string.Empty;
+            listIndex = 0;
+            buttonText.text = "HELP!";
+            evaAnimator.SetBool("isOnScreen", false);
+            isOnScreen = false;
+            testText.text = string.Empty;
+            StartCoroutine(HelpButtonCooldown(1));
+            Color resetAlpha = boxSprite.color;
+            resetAlpha.a = 0;
+            boxSprite.color = resetAlpha;
+            triangleSprite.color = resetAlpha;
+            
         }
         else if (listIndex != charOnScreen.Count)
         {
@@ -85,7 +105,14 @@ public class HelpButton : MonoBehaviour
             resetAlpha.a = 0;
             boxSprite.color = resetAlpha;
             triangleSprite.color = resetAlpha;
+            
         }
+    }
+
+    IEnumerator HideEva()
+    {
+        yield return new WaitForSeconds(0.5f);
+        gameObject.SetActive(false);
     }
 
     IEnumerator LurkerHint()
@@ -96,8 +123,8 @@ public class HelpButton : MonoBehaviour
         // show characters 1 by 1
         foreach (char c in hints[2].ToCharArray())
             {
-
-                testText.text += c;
+            audioSource.Play();
+            testText.text += c;
                 yield return new WaitForSeconds(0.03f);
 
             }
@@ -107,8 +134,10 @@ public class HelpButton : MonoBehaviour
 
     }
 
-    IEnumerator DisplayText()
+    public IEnumerator DisplayText()
     {
+        
+        
         testText.text = string.Empty;
         
         buttonText.text = "OK!";
@@ -118,7 +147,7 @@ public class HelpButton : MonoBehaviour
             // show characters 1 by 1
             foreach (char c in hints[4].ToCharArray())
             {
-
+                audioSource.Play();
                 testText.text += c;
                 yield return new WaitForSeconds(0.03f);
 
@@ -131,7 +160,7 @@ public class HelpButton : MonoBehaviour
             // show characters 1 by 1
             foreach (char c in hints[3].ToCharArray())
             {
-
+                audioSource.Play();
                 testText.text += c;
                 yield return new WaitForSeconds(0.03f);
 
@@ -144,7 +173,7 @@ public class HelpButton : MonoBehaviour
             // show characters 1 by 1
             foreach (char c in hints[0].ToCharArray())
             {
-
+                audioSource.Play();
                 testText.text += c;
                 yield return new WaitForSeconds(0.03f);
 
@@ -157,7 +186,7 @@ public class HelpButton : MonoBehaviour
             // show characters 1 by 1
             foreach (char c in hints[1].ToCharArray())
             {
-
+                audioSource.Play();
                 testText.text += c;
                 yield return new WaitForSeconds(0.03f);
 
@@ -183,7 +212,7 @@ public class HelpButton : MonoBehaviour
         }
         boxSprite.color = tempColor;
         triangleSprite.color = tempColor;
-
+        
 
         if (camLurkerActive)
         {
@@ -191,6 +220,7 @@ public class HelpButton : MonoBehaviour
         }
         else
         {
+            
             StartCoroutine(DisplayText());
         }
 

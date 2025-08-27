@@ -26,6 +26,7 @@ public class CameraSystem : MonoBehaviour
     public GameObject camButton5;
     public GameObject camButton6;
     public GameObject helpButton;
+    
     public TextMeshProUGUI camName;
     public AudioClip switchCamSFX;
 
@@ -53,15 +54,25 @@ public class CameraSystem : MonoBehaviour
 
     void HideAllRooms()
     {
-        helpButton.GetComponent<HelpButton>().charOnScreen.Clear();
-        if (helpButton.GetComponent<HelpButton>().camLurkerActive == false)
+        
+        
+        
+        
+
+        if (!helpButton.GetComponent<HelpButton>().isOnScreen)
         {
-            helpButton.GetComponent<HelpButton>().testText.text = string.Empty;
-            helpButton.GetComponent<HelpButton>().listIndex = 0;
-            
             helpButton.SetActive(false);
+
         }
-        stageRoom.gameObject.SetActive(false);
+        
+            /* if (helpButton.GetComponent<HelpButton>().camLurkerActive == false)
+             {
+                 helpButton.GetComponent<HelpButton>().testText.text = string.Empty;
+                 helpButton.GetComponent<HelpButton>().listIndex = 0;
+
+                 helpButton.SetActive(false);
+             }*/
+            stageRoom.gameObject.SetActive(false);
         intersection.gameObject.SetActive(false);
         hallway.gameObject.SetActive(false);
         ballpit.gameObject.SetActive(false);
@@ -74,6 +85,10 @@ public class CameraSystem : MonoBehaviour
         camButton5.GetComponent<Image>().color = Color.black;
         camButton6.GetComponent<Image>().color = Color.black;
     }
+
+    
+
+    
 
     public void SwitchToOffice()
     {
@@ -110,11 +125,16 @@ public class CameraSystem : MonoBehaviour
         HideAllRooms();
         camButton1.GetComponent<Image>().color = Color.yellow;
         hallway.gameObject.SetActive(true);
+        if (helpButton.GetComponent<HelpButton>().camLurkerActive)
+        {
+            helpButton.SetActive(true);
+        }
 
     }
 
     public void ClickCam2()
     {
+        
         camButton2.GetComponent<Image>().color = Color.yellow;
         StartCoroutine(ShowStatic());
         
@@ -122,6 +142,10 @@ public class CameraSystem : MonoBehaviour
         HideAllRooms();
         camButton2.GetComponent<Image>().color = Color.yellow;
         intersection.gameObject.SetActive(true);
+        if (helpButton.GetComponent<HelpButton>().camLurkerActive)
+        {
+            helpButton.SetActive(true);
+        }
     }
 
     public void ClickCam6()
@@ -134,11 +158,16 @@ public class CameraSystem : MonoBehaviour
         HideAllRooms();
         camButton3.GetComponent<Image>().color = Color.yellow;
         bathroom.gameObject.SetActive(true);
+        if (helpButton.GetComponent<HelpButton>().camLurkerActive)
+        {
+            helpButton.SetActive(true);
+        }
     }
 
     public void ClickCam7()
     {
-        
+        helpButton.GetComponent<HelpButton>().charOnScreen.Clear();
+        helpButton.GetComponent<HelpButton>().listIndex = 0;
         StartCoroutine(ShowStatic());
         
         isOnCam02 = false;
@@ -150,7 +179,8 @@ public class CameraSystem : MonoBehaviour
 
     public void ClickCam8()
     {
-        
+        helpButton.GetComponent<HelpButton>().charOnScreen.Clear();
+        helpButton.GetComponent<HelpButton>().listIndex = 0;
         StartCoroutine(ShowStatic());
         
         isOnCam02 = false;
@@ -162,7 +192,8 @@ public class CameraSystem : MonoBehaviour
 
     public void ClickCam9()
     {
-
+        helpButton.GetComponent<HelpButton>().charOnScreen.Clear();
+        helpButton.GetComponent<HelpButton>().listIndex = 0;
         StartCoroutine(ShowStatic());
 
         isOnCam02 = false;

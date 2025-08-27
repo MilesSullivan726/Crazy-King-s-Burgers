@@ -66,11 +66,18 @@ public class CamLurker : MonoBehaviour
             lurkText.text = "Better luck next time!";
             StartCoroutine("HideTextBox");
         }
-        helpButton.GetComponent<HelpButton>().camLurkerActive = false;
-        if (helpButton.GetComponent<HelpButton>().charOnScreen.Count == 0) // prevent bug when lurker is dealt with before help button is pressed
+        
+        if (helpButton.GetComponent<HelpButton>().charOnScreen.Count == 0 && !helpButton.GetComponent<HelpButton>().isOnScreen) // prevent bug when lurker is dealt with before help button is pressed
         {
             helpButton.SetActive(false);
         }
+        StartCoroutine(TurnOffCamLurkHint());
+    }
+
+    IEnumerator TurnOffCamLurkHint()
+    {
+        yield return new WaitForSeconds(1);
+        helpButton.GetComponent<HelpButton>().camLurkerActive = false;
     }
 
     IEnumerator StartTimer()
@@ -86,7 +93,7 @@ public class CamLurker : MonoBehaviour
         }
         buttonClicked = false;
         helpButton.GetComponent<HelpButton>().camLurkerActive = false;
-        if (helpButton.GetComponent<HelpButton>().charOnScreen.Count == 0)
+        if (helpButton.GetComponent<HelpButton>().charOnScreen.Count == 0 && !helpButton.GetComponent<HelpButton>().isOnScreen)
         {
             helpButton.SetActive(false);
         }

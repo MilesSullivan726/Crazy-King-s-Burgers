@@ -36,10 +36,7 @@ public class Knight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            Movement();
-        }
+        
         if (jesterAI.GetComponent<Jester>().currentPos == 2 && currentPos == 1)
         {
             jesterAI.GetComponent<Jester>().knightPresent = true;
