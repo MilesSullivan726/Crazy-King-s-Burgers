@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D;
 
 public class Flashlight : MonoBehaviour
 {
@@ -98,8 +99,14 @@ public class Flashlight : MonoBehaviour
         {
             if (!threatPresent)
             {
-                gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+                
+                
+                
+                
                 gameObject.GetComponent<SpriteRenderer>().sprite = light;
+                
+                gameObject.GetComponent<SpriteRenderer>().color = new Color(255,255,255,0.5f);
+                
             }
             if (kingPos.activeSelf && !kingHasBeenFlashed)
             {
@@ -123,8 +130,16 @@ public class Flashlight : MonoBehaviour
             flashLightOn = false;
 
             audioSource.PlayOneShot(flashlightOff);
-            gameObject.GetComponent<SpriteRenderer>().color = Color.black;
+            
+            
+            
+            
             gameObject.GetComponent<SpriteRenderer>().sprite = darkness;
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 1f);
+            
+
+
+
         }
     }
 }
