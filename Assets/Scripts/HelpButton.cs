@@ -10,6 +10,7 @@ using UnityEngine.UI;
 public class HelpButton : MonoBehaviour
 {
     public Animator evaAnimator;
+    public Animator mouth;
     public GameObject testTextBox;
     public GameObject triangle;
     public GameObject[] roomsToHideHint;
@@ -136,8 +137,8 @@ public class HelpButton : MonoBehaviour
 
     public IEnumerator DisplayText()
     {
-        
-        
+
+        mouth.SetTrigger("Talk");
         testText.text = string.Empty;
         
         buttonText.text = "OK!";
@@ -193,8 +194,8 @@ public class HelpButton : MonoBehaviour
             }
             
         }
+        mouth.SetTrigger("Close");
 
-        
     }
 
     IEnumerator ShowTextBox(GameObject textBox)
