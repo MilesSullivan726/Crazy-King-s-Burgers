@@ -36,7 +36,8 @@ public class HelpButton : MonoBehaviour
         triangleSprite = triangle.GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
         buttonText.text = "HELP!";
-        
+        //charOnScreen.Add("Queen");
+        //charOnScreen.Add("King");
 
 
     }
@@ -244,6 +245,7 @@ public class HelpButton : MonoBehaviour
 
     private void OnEnable()
     {
+        Debug.Log("Help Button");
         charOnScreen = new List<string>();
         buttonText.text = "HELP!";
         helpButton.GetComponent<Button>().enabled = true;

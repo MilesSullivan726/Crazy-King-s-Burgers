@@ -21,7 +21,7 @@ public class Knight : MonoBehaviour
     public AudioClip run;
     public int difficulty;
     private int moveChance;
-    private int currentPos = 0;
+    public int currentPos = 0;
     private int attackPos;
    
     private AudioSource audioSource;
@@ -36,6 +36,8 @@ public class Knight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        
         
         if (jesterAI.GetComponent<Jester>().currentPos == 2 && currentPos == 1)
         {
@@ -58,7 +60,7 @@ public class Knight : MonoBehaviour
         moveChance = Random.Range(1, 21);
         if (moveChance <= difficulty)
         {
-            if (positions[currentPos].transform.parent.gameObject.activeSelf)
+            if (positions[currentPos].transform.parent.gameObject.activeSelf || positions[currentPos - 1].transform.parent.gameObject.activeSelf)
             {
                 StartCoroutine(cameraSystem.GetComponent<CameraSystem>().ShowStatic());
             }
@@ -66,6 +68,7 @@ public class Knight : MonoBehaviour
             {
                 positions[0].SetActive(false);
                 attackPos = Random.Range(1, 4);
+                //attackPos = 1;
                 
                 if (attackPos == 1) //left
                 {
@@ -73,6 +76,7 @@ public class Knight : MonoBehaviour
                     currentPos = 1;
                     if (jesterPos.activeSelf)
                     {
+                        Debug.Log("Jester Active");
                         jesterAI.GetComponent<Jester>().knightOverride = true;
                         jesterAI.GetComponent<Jester>().Movement();
                     }

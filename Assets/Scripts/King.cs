@@ -34,7 +34,7 @@ public class King : MonoBehaviour
     public void Movement()
     {
         moveChance = Random.Range(1, 21);
-        if (((moveChance <= difficulty && currentPos != finalPos) || knightOverride) && !knightPresent)
+        if ((moveChance <= difficulty && currentPos != finalPos && !knightPresent) || knightOverride)
         {
             knightOverride = false;
             if (positions[currentPos].transform.parent.gameObject.activeSelf || positions[currentPos - 1].transform.parent.gameObject.activeSelf)

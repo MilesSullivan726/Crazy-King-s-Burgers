@@ -38,6 +38,7 @@ public class Cam02 : MonoBehaviour
 
     void RotateCams()
     {
+        
         StartCoroutine(camSystem.GetComponent<CameraSystem>().ShowStatic());
         if (count > 4)
         {

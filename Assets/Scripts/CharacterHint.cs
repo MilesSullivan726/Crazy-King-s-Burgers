@@ -23,11 +23,17 @@ public class CharacterHint : MonoBehaviour
 
     void OnEnable()
     {
+        StartCoroutine(AddCharacter());
+    }
+
+    IEnumerator AddCharacter()
+    {
+        yield return null;
         hintSystem.SetActive(true);
         if (!hintSystem.GetComponent<HelpButton>().charOnScreen.Contains(characterName))
         {
-            
+
             hintSystem.GetComponent<HelpButton>().charOnScreen.Add(characterName);
-        } 
+        }
     }
 }

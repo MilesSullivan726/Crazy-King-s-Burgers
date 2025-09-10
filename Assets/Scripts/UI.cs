@@ -20,6 +20,7 @@ public class UI : MonoBehaviour
     public GameObject window;
     public GameObject fadeToBlack;
     public GameObject officeAmbiance;
+    public GameObject usageBackground;
     public TextMeshProUGUI time;  
     public TextMeshProUGUI power;
     public GameObject fan;
@@ -42,9 +43,20 @@ public class UI : MonoBehaviour
     void Update()
     {
 
-        
+        if (cameraSystem.activeSelf)
+        {
+            time.gameObject.SetActive(true);
+            power.gameObject.SetActive(true);
+            usageBackground.SetActive(false);
+        }
+        else if (!cameraSystem.activeSelf)
+        {
+            time.gameObject.SetActive(false);
+            power.gameObject.SetActive(false);
+            usageBackground.SetActive(true);
+        }
 
-        if(usage == 1)
+        if (usage == 1)
         {
             use2.SetActive(false);
             use3.SetActive(false);
