@@ -8,7 +8,9 @@ public class Jester : MonoBehaviour
     public GameObject office;
     public GameObject jumpscare;
     public GameObject cameraSystem;
-
+    public GameObject doorButton;
+    public GameObject windowButton;
+    public GameObject ui;
     public AudioClip doorKnock;
     public int difficulty;
     public bool knightOverride = false;
@@ -49,8 +51,14 @@ public class Jester : MonoBehaviour
         {
             if (office.GetComponent<Office>().isDoorOpen)
             {
-                cameraSystem.GetComponent<CameraSystem>().SwitchToOffice();
-                jumpscare.SetActive(true);
+                StartCoroutine(ui.GetComponent<UI>().BeginningFlash());
+                doorButton.SetActive(false);
+                windowButton.SetActive(false);
+                StartCoroutine(ShowArmsInOffice());
+                if (!office.GetComponent<Office>().isWindowOpen)
+                {
+                    office.GetComponent<Office>().ToggleWindowDoor();
+                } 
 
             }
             else
@@ -66,5 +74,11 @@ public class Jester : MonoBehaviour
 
             }
         }
+    }
+
+    IEnumerator ShowArmsInOffice()
+    {
+        yield return new WaitForSeconds(0.3f);
+        jumpscare.SetActive(true);
     }
 }

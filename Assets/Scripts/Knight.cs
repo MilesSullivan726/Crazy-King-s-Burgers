@@ -36,21 +36,34 @@ public class Knight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         
         
-        if (jesterAI.GetComponent<Jester>().currentPos == 2 && currentPos == 1)
+        
+        if (jesterAI.GetComponent<Jester>().currentPos == 3 && currentPos == 1)
         {
-            jesterAI.GetComponent<Jester>().knightPresent = true;
+            jesterAI.GetComponent<Jester>().knightOverride = true;
+            jesterAI.GetComponent<Jester>().Movement();
         }
-        else if (queenAI.GetComponent<Queen>().currentPos == 3 && currentPos == 2)
+        else if (queenAI.GetComponent<Queen>().currentPos == 4 && currentPos == 2)
         {
-            queenAI.GetComponent<Queen>().knightPresent = true;
+            queenAI.GetComponent<Queen>().knightOverride = true;
+            queenAI.GetComponent<Queen>().Movement();
 
         }
-        else if (kingAI.GetComponent<King>().currentPos == 2 && currentPos == 3)
+        else if ((kingAI.GetComponent<King>().currentPos == 3 || kingAI.GetComponent<King>().currentPos == 4) && currentPos == 3)
         {
-            kingAI.GetComponent<King>().knightPresent = true;
+            if (kingPos2.activeSelf)
+            {
+                kingAI.GetComponent<King>().knightOverride = true;
+                kingAI.GetComponent<King>().Movement();
+                kingAI.GetComponent<King>().knightOverride = true;
+                kingAI.GetComponent<King>().Movement();
+            }
+            else if (kingPos1.activeSelf)
+            {
+                kingAI.GetComponent<King>().knightOverride = true;
+                kingAI.GetComponent<King>().Movement();
+            }
 
         }
     }
@@ -60,7 +73,7 @@ public class Knight : MonoBehaviour
         moveChance = Random.Range(1, 21);
         if (moveChance <= difficulty)
         {
-            if (positions[currentPos].transform.parent.gameObject.activeSelf || positions[currentPos - 1].transform.parent.gameObject.activeSelf)
+            if (positions[0].transform.parent.gameObject.activeSelf || positions[1].transform.parent.gameObject.activeSelf || positions[2].transform.parent.gameObject.activeSelf || positions[3].transform.parent.gameObject.activeSelf)
             {
                 StartCoroutine(cameraSystem.GetComponent<CameraSystem>().ShowStatic());
             }
@@ -68,7 +81,7 @@ public class Knight : MonoBehaviour
             {
                 positions[0].SetActive(false);
                 attackPos = Random.Range(1, 4);
-                //attackPos = 1;
+                //attackPos = 2;
                 
                 if (attackPos == 1) //left
                 {

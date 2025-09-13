@@ -82,7 +82,7 @@ public class UI : MonoBehaviour
         }
     }
 
-    IEnumerator BeginningFlash()
+    public IEnumerator BeginningFlash()
     {
         yield return new WaitForSeconds(interval);
         blackScreen.SetActive(false);
