@@ -16,6 +16,7 @@ public class Jester : MonoBehaviour
     public bool knightOverride = false;
     public bool knightPresent = false;
     private int moveChance;
+    private bool hasEnteredOffice = false;
     public int currentPos = 1;
     private AudioSource audioSource;
     public int finalPos = 6;
@@ -36,7 +37,7 @@ public class Jester : MonoBehaviour
     {
         
         moveChance = Random.Range(1, 21);
-        if ((moveChance <= difficulty && currentPos != finalPos && !knightPresent) || knightOverride)
+        if ((moveChance <= difficulty && currentPos != finalPos && !hasEnteredOffice) || knightOverride)
             {
             knightOverride = false;
             if (positions[currentPos].transform.parent.gameObject.activeSelf || positions[currentPos - 1].transform.parent.gameObject.activeSelf)
@@ -47,10 +48,11 @@ public class Jester : MonoBehaviour
             positions[currentPos].SetActive(true);
             currentPos += 1;
         }
-        else if (currentPos == finalPos)
+        else if (currentPos == finalPos && !hasEnteredOffice)
         {
             if (office.GetComponent<Office>().isDoorOpen)
             {
+                hasEnteredOffice = true;
                 StartCoroutine(ui.GetComponent<UI>().BeginningFlash());
                 doorButton.SetActive(false);
                 windowButton.SetActive(false);

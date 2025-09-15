@@ -38,7 +38,7 @@ public class Knight : MonoBehaviour
     {
         
         
-        
+        /*
         if (jesterAI.GetComponent<Jester>().currentPos == 3 && currentPos == 1)
         {
             jesterAI.GetComponent<Jester>().knightOverride = true;
@@ -64,8 +64,8 @@ public class Knight : MonoBehaviour
                 kingAI.GetComponent<King>().knightOverride = true;
                 kingAI.GetComponent<King>().Movement();
             }
-
-        }
+        
+        }*/
     }
 
     void Movement()
