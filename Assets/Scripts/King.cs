@@ -41,17 +41,12 @@ public class King : MonoBehaviour
             {
                 StartCoroutine(cameraSystem.GetComponent<CameraSystem>().ShowStatic());
             }
-            if (currentPos == 5)
+            if (currentPos == 5 || currentPos == 6)
             {
                 StartCoroutine(windowDarkness.GetComponent<Flashlight>().HallwayFlash());
 
             }
-            if (currentPos == 6)
-            {
-                StartCoroutine(windowDarkness.GetComponent<Flashlight>().HallwayFlash());
-                audioSource.volume = 0.2f;
-                //audioSource.PlayOneShot(laugh);
-            }
+            
             positions[currentPos - 1].SetActive(false);
             positions[currentPos].SetActive(true);
             currentPos += 1;

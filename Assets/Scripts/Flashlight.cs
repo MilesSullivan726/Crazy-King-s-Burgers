@@ -11,6 +11,7 @@ public class Flashlight : MonoBehaviour
     private bool flashLightOn = false;
     private bool kingHasBeenFlashed = false;
     private bool queenHasBeenFlashed = false;
+    private bool mimicHasBeenFlashed = false;
     private bool canFlash = true;
     public AudioClip flashlightSFX;
     public AudioClip atWindowScare;
@@ -19,6 +20,7 @@ public class Flashlight : MonoBehaviour
     public Sprite light;
     public GameObject kingPos;
     public GameObject queenPos;
+    public GameObject mimicPos;
     public GameObject Office;
     // Start is called before the first frame update
     void Start()
@@ -34,6 +36,10 @@ public class Flashlight : MonoBehaviour
             kingHasBeenFlashed = false;
         }
         if (!queenPos.activeSelf)
+        {
+            queenHasBeenFlashed = false;
+        }
+        if (!mimicPos.activeSelf)
         {
             queenHasBeenFlashed = false;
         }
@@ -90,6 +96,12 @@ public class Flashlight : MonoBehaviour
                 audioSource.volume = 0.8f;
                 audioSource.PlayOneShot(atWindowScare);
             }
+            if (mimicPos.activeSelf && !mimicHasBeenFlashed)
+            {
+                mimicHasBeenFlashed = true;
+                audioSource.volume = 0.8f;
+                audioSource.PlayOneShot(atWindowScare);
+            }
         }
     }
 
@@ -117,6 +129,12 @@ public class Flashlight : MonoBehaviour
             if (queenPos.activeSelf && !queenHasBeenFlashed)
             {
                 queenHasBeenFlashed = true;
+                audioSource.volume = 0.8f;
+                audioSource.PlayOneShot(atWindowScare);
+            }
+            if (mimicPos.activeSelf && !mimicHasBeenFlashed)
+            {
+                mimicHasBeenFlashed = true;
                 audioSource.volume = 0.8f;
                 audioSource.PlayOneShot(atWindowScare);
             }

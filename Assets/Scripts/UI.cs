@@ -15,6 +15,7 @@ public class UI : MonoBehaviour
     public GameObject blackScreen;
     public GameObject powerOutScreen;
     public GameObject hideOnPowerOut;
+    public GameObject windowDarkness;
     public GameObject camButton;
     public GameObject leftDoor;
     public GameObject window;
@@ -144,6 +145,8 @@ public class UI : MonoBehaviour
             powerOutScreen.SetActive(true);
             officeAmbiance.SetActive(false);
             hideOnPowerOut.SetActive(false);
+            windowDarkness.GetComponent<BoxCollider2D>().enabled = false;
+            windowDarkness.GetComponent<PolygonCollider2D>().enabled = false;
             camButton.SetActive(false);
             leftDoor.GetComponent<Animator>().SetTrigger("OpenDoor");
             window.GetComponent<Animator>().SetTrigger("DoorOpen");
