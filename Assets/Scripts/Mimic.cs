@@ -21,14 +21,14 @@ public class Mimic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("Movement", 5, 5);
+        InvokeRepeating("Movement", 9, 9);
         audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     public void Movement()

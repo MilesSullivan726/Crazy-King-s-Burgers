@@ -22,6 +22,7 @@ public class UI : MonoBehaviour
     public GameObject fadeToBlack;
     public GameObject officeAmbiance;
     public GameObject usageBackground;
+    public GameObject princessScreen;
     public TextMeshProUGUI time;  
     public TextMeshProUGUI power;
     public GameObject fan;
@@ -81,6 +82,11 @@ public class UI : MonoBehaviour
             use3.SetActive(true);
             use4.SetActive(true);
         }
+    }
+
+    public void StartPrincessGame()
+    {
+        princessScreen.SetActive(true);
     }
 
     public IEnumerator BeginningFlash()

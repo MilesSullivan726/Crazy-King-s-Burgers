@@ -37,7 +37,7 @@ public class Knight : MonoBehaviour
     void Update()
     {
         
-        
+
         /*
         if (jesterAI.GetComponent<Jester>().currentPos == 3 && currentPos == 1)
         {
@@ -81,7 +81,7 @@ public class Knight : MonoBehaviour
             {
                 positions[0].SetActive(false);
                 attackPos = Random.Range(1, 4);
-                //attackPos = 2;
+                //attackPos = 3;
                 
                 if (attackPos == 1) //left
                 {

@@ -41,7 +41,7 @@ public class Flashlight : MonoBehaviour
         }
         if (!mimicPos.activeSelf)
         {
-            queenHasBeenFlashed = false;
+            mimicHasBeenFlashed = false;
         }
         if (Office.GetComponent<Office>().isWindowOpen == false)
         {
