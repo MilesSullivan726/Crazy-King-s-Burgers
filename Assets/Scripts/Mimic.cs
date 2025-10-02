@@ -21,7 +21,7 @@ public class Mimic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("Movement", 9, 9);
+        //InvokeRepeating("Movement", 9, 9);
         audioSource = gameObject.GetComponent<AudioSource>();
     }
 
@@ -33,7 +33,7 @@ public class Mimic : MonoBehaviour
 
     public void Movement()
     {
-        Debug.Log(currentPos);
+        
         moveChance = Random.Range(1, 21);
         if ((moveChance <= difficulty && currentPos != finalPos && !knightPresent) || knightOverride)
         {

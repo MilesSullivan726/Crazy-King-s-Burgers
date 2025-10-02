@@ -9,6 +9,11 @@ public class FadIn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+    }
+
+    private void OnEnable()
+    {
         spriteRenderer = GetComponent<SpriteRenderer>();
         StartCoroutine(FadeOut(spriteRenderer));
     }

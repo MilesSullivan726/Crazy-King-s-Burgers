@@ -12,6 +12,7 @@ public class UI : MonoBehaviour
     public GameObject use4;
     public GameObject lurkerJumpscare;
     public GameObject cameraSystem;
+    public GameObject office;
     public GameObject blackScreen;
     public GameObject powerOutScreen;
     public GameObject hideOnPowerOut;
@@ -23,9 +24,19 @@ public class UI : MonoBehaviour
     public GameObject officeAmbiance;
     public GameObject usageBackground;
     public GameObject princessScreen;
+    public GameObject princessFadeToBlack;
+    public GameObject princessButton;
+    public GameObject mimicJumpscare;
+    public GameObject jester;
+    public GameObject king;
+    public GameObject queen;
+    public GameObject knight;
     public TextMeshProUGUI time;  
     public TextMeshProUGUI power;
     public GameObject fan;
+    public AudioClip helloSFX;
+    public AudioClip knockSFX;
+    private AudioSource audioSource;
     private int usage = 1;
     private int currentTime = 0;
     public float currentPower = 999;
@@ -35,9 +46,10 @@ public class UI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
         InvokeRepeating("UpdateTime", 60, 60);
         InvokeRepeating("UpdatePower", 1,1);
+        InvokeRepeating("ActivatePrincessButton", 60, 60);
         StartCoroutine(BeginningFlash());
     }
 
@@ -84,9 +96,59 @@ public class UI : MonoBehaviour
         }
     }
 
-    public void StartPrincessGame()
+    public void ActivatePrincessButton()
     {
+        if (office.GetComponent<Office>().isDoorOpen)
+        {
+            audioSource.PlayOneShot(helloSFX);
+        }
+        else
+        {
+            audioSource.PlayOneShot(knockSFX);
+        }
+            princessButton.SetActive(true);
+        StartCoroutine(KillTimer());
+    }
+
+    IEnumerator KillTimer()
+    {
+        yield return new WaitForSeconds(10);
+        if (!princessFadeToBlack.activeSelf && !princessScreen.activeSelf)
+        {
+            if (cameraSystem.activeSelf)
+            {
+                cameraSystem.GetComponent<CameraSystem>().SwitchToOffice();
+            }
+            mimicJumpscare.SetActive(true);
+        }
+    }
+
+    public void PrincessCoroutineStart()
+    {
+        if (!office.GetComponent<Office>().isDoorOpen)
+        {
+            office.GetComponent<Office>().ToggleLeftDoor();
+        }
+        jester.GetComponent<Jester>().CancelInvoke();
+        king.GetComponent<King>().CancelInvoke();
+        queen.GetComponent<Queen>().CancelInvoke();
+        knight.GetComponent<Knight>().CancelInvoke();
+        StartCoroutine(StartPrincessGame());
+    }
+
+    public IEnumerator StartPrincessGame()
+    {
+        Color tempColor = princessFadeToBlack.GetComponent<SpriteRenderer>().color;
+        tempColor.a = 0;
+        princessFadeToBlack.GetComponent<SpriteRenderer>().color = tempColor;
+        princessFadeToBlack.SetActive(true);
+        
+        yield return new WaitForSeconds(2);
         princessScreen.SetActive(true);
+        princessFadeToBlack.SetActive(false);
+        office.SetActive(false);
+        hideOnPowerOut.SetActive(false);
+        
     }
 
     public IEnumerator BeginningFlash()

@@ -42,6 +42,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Button
+    uniqueID: 2902683641
+    locked: 0
   - name: border
     uniqueID: 641372253
     locked: 0
